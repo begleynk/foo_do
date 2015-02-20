@@ -1,4 +1,4 @@
-== FooDo
+# FooDo
 
 Part of the KCL Tech Ruby Web Application workshop series. This project will be developed weekly, introducing new concepts weekly.
 
