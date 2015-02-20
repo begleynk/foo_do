@@ -1,28 +1,26 @@
-== README
+== FooDo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Part of the KCL Tech Ruby Web Application workshop series. This project will be developed weekly, introducing new concepts weekly.
 
-Things you may want to cover:
+## Get up and running
 
-* Ruby version
+After you've cloned this project, navigate to the project directory in your terminal/command prompt, then type the command:
 
-* System dependencies
+	bundle install
 
-* Configuration
+This will install all the gems required to run the project.
 
-* Database creation
+After that you can start the server:
 
-* Database initialization
+	rails server
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+(You can also just type "rails s" for short.)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Now when you go to localhost:3000 in your browser, you'll be able to access your app.
+
+#### A note about RVM
+
+I've added two files to the project directory: _.ruby-version_ and _.ruby-gemset_. These files will tell RVM to use Ruby 2.2.0, and to switch to a gemset called foo_do. It simply means that this project won't be conflicting with any other gems you may have installed on your system, since RVM will now isolate foo_do.
+
+You can read more about RVM workflows and best practices [here](https://rvm.io/workflow/projects).
