@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2 class='page-header'><%= @project.name %></h2>
+    <p>Due in <strong><%= distance_of_time_in_words_to_now @project.due_date %></strong></p>
+    <p><%= @project.note %></p>
+  </div>
+</div>
