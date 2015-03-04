@@ -36,6 +36,23 @@
     </nav>
     <!-- End Navbar -->
 
+    <!-- Flash messages --> 
+    <% if flash.any? %>
+      <br>
+      <div class='row'>
+        <div class='col-md-6 col-md-offset-3'>
+          <% flash.each do |type, message| %>
+            <div class="alert <%= alert_class_for(type) %> alert-dismissible fade in">
+              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <%= message %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+
+
     <!-- Any template content will start here -->
     <%= yield %>
     <!-- And end here -->
