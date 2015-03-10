@@ -2,6 +2,41 @@
   <div class="col-md-6 col-md-offset-3">
     <h2 class='page-header'><%= @project.name %></h2>
     <p>Due in <strong><%= distance_of_time_in_words_to_now @project.due_date %></strong></p>
-    <p><%= @project.note %></p>
+    <div class="well">
+      <p><%= @project.note %></p>
+    </div>
+
+    <hr>
+
+    <%= form_tag project_tasks_path(@project), id: "new-task-form" do %>
+      <div class="row">
+        <div class="col-md-10">
+          <%= text_field_tag :title, nil, class: "form-control", id: "task-title" %>
+        </div>
+        <%= submit_tag "Create Task", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <br>
+
+    <ul class="list-group" id="task-list">
+      <% @project.tasks.each do |t| %>
+        <% if t.completed %>
+          <li class="list-group-item list-group-item-success">
+            <%= div_for t do %>
+              <input type="checkbox" checked="true" data-task-id='<%= t.id %>' class="pull-right">
+              <%= t.title %>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="list-group-item">
+            <%= div_for t do %>
+              <input type="checkbox" data-task-id='<%= t.id %>' class="pull-right">
+              <%= t.title %>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
   </div>
 </div>
