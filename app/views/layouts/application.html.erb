@@ -28,8 +28,20 @@
             <input type="text" class="form-control" placeholder="Search...">
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Projects", projects_path %></li>
-            <li><a href="#">Settings</a></li>
+            <% if current_user %>
+              <li><%= link_to "Projects", projects_path %></li>
+              <li id="fat-menu" class="dropdown">
+                <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                  <%= current_user.email %>
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                  <li role="presentation"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to "Sign in", new_user_session_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
